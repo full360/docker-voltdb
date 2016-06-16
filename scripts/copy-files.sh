@@ -11,7 +11,7 @@ if [ -z "$VOLTDB_DIR" ]; then
 fi
 
 function copy_compiled_files {
-  mkdir -p voltdb-com-${VOLTDB_DIR}/third_party
+  mkdir -p voltdb-com-$VOLTDB_COM_VERSION/third_party
 
   cp -R $VOLTDB_DIR/{LICENSE,README.md,README.thirdparty,bin,bundles,doc,examples,lib,third_party/python,tools,version.txt,voltdb} \
     voltdb-com-${VOLTDB_COM_VERSION}/

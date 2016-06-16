@@ -1,4 +1,4 @@
-VOLTDB_COM_VERSION ?= $(shell echo 6.4)
+VOLTDB_COM_VERSION ?= 6.4
 
 all: \
 	copy-files \
