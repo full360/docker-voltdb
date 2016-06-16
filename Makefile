@@ -1,8 +1,12 @@
 VOLTDB_COM_TAG ?= 6.4
 
 all: \
+	clean \
 	copy-files \
 	build-image
+
+clean:
+	@rm -rf $(CURDIR)/voltdb-com-*
 
 copy-files:
 	@sh -c "'$(CURDIR)/scripts/copy-files.sh'"
@@ -10,4 +14,4 @@ copy-files:
 build-image:
 	@docker build --no-cache -t albertogg/voltdb-com:$(VOLTDB_COM_TAG) .
 
-.PHONY: all build-image
+.PHONY: all clean copy-files build-image
