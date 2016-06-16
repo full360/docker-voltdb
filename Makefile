@@ -5,7 +5,7 @@ all: \
 	build-files
 
 copy-files:
-	@sh -c "'$(CURDIR)/scripts/copy-files.sh'"
+	VOLTDB_COM_VERSION=$(VOLTDB_COM_VERSION) @sh -c "'$(CURDIR)/scripts/copy-files.sh'"
 
-build-files:
+build-image:
 	@docker build --no-cache -t albertogg/voltdb-com:$(VOLTDB_COM_VERSION) .
