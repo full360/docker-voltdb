@@ -56,7 +56,6 @@ WORKDIR /usr/local/var/voltdb
 # JMX Port 9090
 # Replication Port 5555
 # Zookeeper port 7181
-# Client Port
 EXPOSE 21212 21211 8080 3021 4560 9090 5555 7181
 
 CMD ["voltdb", "create"]
