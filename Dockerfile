@@ -2,7 +2,7 @@ FROM java:8
 MAINTAINER Alberto Grespan <alberto.grespan@full360.com>
 
 # Export the VOLTDB_VERSION
-ENV VOLTDB_VERSION 6.4.jepsen3
+ENV VOLTDB_VERSION 6.4
 # Export the VOLTDB_DIR where voltdb files will live
 ENV VOLTDB_DIR /usr/local/opt/voltdb
 # Export to the PATH where all voltdb binaries
