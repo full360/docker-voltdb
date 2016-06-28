@@ -8,10 +8,10 @@ all: \
 	build-image
 
 build-image:
-	@docker build --no-cache -t $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) . && \
-		@docker tag -f $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_MINOR) && \
-		@docker tag -f $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_MAJOR) && \
-		@docker tag -f $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) $(DOCKER_USER)/$(VOLTDB_COM):latest
+	@docker build --no-cache -t $(DOCKER_USER)/$(VOLTDB_COM):latest . && \
+	docker tag -f $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_MINOR) && \
+	docker tag -f $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_MAJOR) && \
+	docker tag -f $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH) $(DOCKER_USER)/$(VOLTDB_COM):$(VOLTDB_COM_TAG_PATCH)
 
 push-image:
 	@docker push $(DOCKER_USER)/$(VOLTDB_COM)
