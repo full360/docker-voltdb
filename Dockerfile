@@ -19,11 +19,11 @@ RUN apt-get update && \
 
 WORKDIR /tmp
 # Get the compressed VoltDB version from GitHub
-RUN curl -L https://github.com/VoltDB/voltdb/archive/voltdb-${VOLTDB_VERSION}.tar.gz | tar zx
+RUN curl -fSL https://github.com/VoltDB/voltdb/archive/voltdb-${VOLTDB_VERSION}.tar.gz | tar zx
 
 WORKDIR /tmp/voltdb-voltdb-${VOLTDB_VERSION}
 # Compile VoltDB without mem check and set the compiler to java 7
-RUN ant -Djmemcheck=NO_MEMCHECK -Dbuild.compiler=javac1.7
+RUN ant -Djmemcheck=NO_MEMCHECK
 
 WORKDIR /${VOLTDB_DIR}/${VOLTDB_VERSION}
 # Copy only the required files to our custom VoltDB PATH and purge every
@@ -58,4 +58,4 @@ WORKDIR /usr/local/var/voltdb
 # Zookeeper port 7181
 EXPOSE 21212 21211 8080 3021 4560 9090 5555 7181
 
-CMD ["voltdb", "create"]
+CMD ["voltdb", "create", "--ignore=thp"]
